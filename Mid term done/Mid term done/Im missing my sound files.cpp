@@ -5,7 +5,7 @@ using namespace std;
 int main() {
 	int room = 1;
 	string input;
-	string item[4];////Items you pick up in the game
+	string item[5];////Items you pick up in the game
 
 	while (input != "quit") {
 		switch (room) {
@@ -103,24 +103,29 @@ int main() {
 			cout << "You can hear something in the next room, do you dare and find out!?" << endl;
 			if (item[2].compare("gummy bear") != 0)
 				cout << "you see a gummy bear" << endl;
-			if (input.compare("gummy bear") == 0) { //Bacon is now in the inventory
+			if (input.compare("gummy bear") == 0) { //gummy bear is now in the inventory
 				item[1] = "gummy bear"; //put in 
-				cout << "You grabbed the good Bacon!" << endl;
+				cout << "You grabbed the gummy bear!" << endl;
 				cout << "You can go west" << endl;
+			}
 				cin >> input;
 				if (input.compare("west") == 0 || input.compare("go west") == 0)
 					room = 11;
 				break;
 		case 11:
+			PlaySound(("cool.wav"), NULL, SND_FILENAME);
+			PlaySound(("TJ.wav"), NULL, SND_FILENAME);
 			cout << "You Have encounterd the DARK MASTER LEO!!! He will only let you go if you feed him and play computer games with him" << endl;
-			cout << "You must fill his request" << endl;
-			cin >> input;
-			if (input.compare("give item") == 1) { //Bacon is now in the inventory
-				item[4] = "give item"; //put in 
+			
+			cout << "You must fill his request" << endl;			
+			if (input.compare("give item") == 1) { //Bacon is now gone
+				item[0] = "give item"; //put in 
+				cin >> input;
 				cout << "You gave him his bacon!" << endl;
 				system("Color 5D");
-				if (input.compare("give other") == 2) { //Bacon is now in the inventory
-					item[1] = "give other item"; //put in 
+				if (input.compare("give other") == 2) { //PC is now gone
+					item[5] = "give other item"; //put in
+					cin >> input;
 					cout << "You grave him his PC master race!" << endl;
 					system("Color 1A");
 					cout << "The evil Levi has seen his evil ways and lets you go, he cries himslef to sleep with sochoeun" << endl;
@@ -129,10 +134,9 @@ int main() {
 
 				}//end switch
 			}//end while
-
-			}cout << "Game over" << endl;
-			exit(0);
-			}//end main// 
 		}
+		
 	}
-}
+	}cout << "Game over" << endl;
+	exit(0);
+}//end main
