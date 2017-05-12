@@ -1,11 +1,20 @@
 #include <iostream>
 #include <string>
+#include <ctime>
 #include <Windows.h>
 using namespace std;
 int main() {
 	int room = 1;
 	string input;
 	string item[5];////Items you pick up in the game
+
+				   //declation
+	
+		srand(time(NULL));
+		while (true) {
+			void spooky();//function call
+			
+		}
 
 	while (input != "quit") {
 		switch (room) {
@@ -28,7 +37,7 @@ int main() {
 			PlaySound(("dead.wav"), NULL, SND_FILENAME);
 
 			break;
-		case 3:
+		case 3://first item
 			cout << "You are in a kitchen full of uncooked food" << endl;
 			if (item[3].compare("Bacon") != 0) //if there's NO bacon in their items//  
 				cout << "you see a un-cooked Bacon on the table" << endl; //say it's in the room
@@ -58,7 +67,7 @@ int main() {
 				system("Color 3F");
 			}
 			cout << endl;
-			break;
+			break;//hint room
 		case 5:
 			cout << "You enter a room with windows, you look out side and see your on the middle of no where!" << endl;// 
 			cout << "You can go west" << endl;
@@ -81,13 +90,14 @@ int main() {
 		case 7://death room//
 			cout << "You have entered the gas chamber, where the evil Molly recideds!!!" << endl;
 			cout << "YOU COME TO DA RONG PLACE, EAT MY PHO AND..." << endl;
+			void spooky();
 			PlaySound(("molly.wav"), NULL, SND_FILENAME);
 			input = "quit";
 			system("Color 4A");
 			system("pause");
 			PlaySound(("dead.wav"), NULL, SND_FILENAME);
 			break;
-		case 8:
+		case 8://hint room
 			cout << "You enter the room of the evil Levi, hes not in here tho" << endl;
 			cout << "I wonder why hes not here, but it looks like he just left." << endl;
 			cout << "You can go west or north" << endl;
@@ -111,7 +121,7 @@ int main() {
 				room = 7;
 			cout << endl;
 			break;
-		case 10:
+		case 10://item room
 			cout << "You can hear something in the next room, do you dare and find out!?" << endl;
 			cout << "there is something on the floor? It looks like a gummy bear" << endl;
 			cout << "You can go east or north" << endl;
@@ -126,8 +136,7 @@ int main() {
 					room = 11;
 				cout << endl;
 				break;
-		case 11:
-			
+		case 11://final room
 			cout << "You Have encounterd the DARK MASTER LEO!!! He calls over the evil SOCHOEUN, He will only let you go if you feed him and play computer games with him and molly" << endl;
 			PlaySound(("cool.wav"), NULL, SND_FILENAME);
 			PlaySound(("TJ.wav"), NULL, SND_FILENAME);			
@@ -147,6 +156,19 @@ int main() {
 
 
 				}//end switch
+
+				int num = rand() % 3;
+				switch (num) {
+				case 0:
+					cout << "You got Mollys pho!" << endl;
+					break;
+				case 1:
+					cout << "You got mollys" << endl;
+					break;
+				case 2:
+					cout << "You got Levy with a haircut!" << endl;
+					break;
+				}
 			}//end while
 		}
 		
